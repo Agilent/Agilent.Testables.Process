@@ -1,0 +1,11 @@
+﻿{
+  "ExtraMembers": [
+    "Agilent.Ace.Testables.Process.Abstractions.IProcess New()",
+    "Void .ctor(System.Diagnostics.Process)"
+  ],
+  "MissingMembers": [
+    "System.Object GetLifetimeService()",
+    "System.Object InitializeLifetimeService()",
+    "System.Runtime.Remoting.ObjRef CreateObjRef(System.Type)"
+  ]
+}
