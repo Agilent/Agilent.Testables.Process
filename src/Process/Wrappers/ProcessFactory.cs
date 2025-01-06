@@ -1,21 +1,15 @@
-// (c) Copyright 2024 Agilent Technologies, Inc. All Rights Reserved.
-
-// Prevents unused usings being highlighted.
-#pragma warning disable IDE0079
-#pragma warning disable IDE0005
-
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
+#if NET8_0_OR_GREATER
 using System.Runtime.Versioning;
+#endif
 using System.Security;
-using Agilent.Ace.Testables.Process.Abstractions;
-
+using Agilent.Testables.Process.Abstractions;
 #if NET8_0_OR_GREATER
 [assembly: SupportedOSPlatform("windows")]
 #endif
-namespace Agilent.Ace.Testables.Process.Wrappers
+namespace Agilent.Testables.Process.Wrappers
 {
+
     public class ProcessFactory : IProcessFactory
     {
         /// <inheritdoc />
@@ -47,31 +41,31 @@ namespace Agilent.Ace.Testables.Process.Wrappers
         }
 
         /// <inheritdoc />
-        public IProcess Start(ProcessStartInfo startInfo)
+        public IProcess? Start(ProcessStartInfo startInfo)
         {
             var realProcess = System.Diagnostics.Process.Start(startInfo);
-            return new ProcessWrapper(realProcess);
+            return realProcess == null ? null : new ProcessWrapper(realProcess);
         }
 
         /// <inheritdoc />
-        public IProcess Start(string fileName)
+        public IProcess? Start(string fileName)
         {
             var realProcess = System.Diagnostics.Process.Start(fileName);
-            return new ProcessWrapper(realProcess);
+            return realProcess == null ? null : new ProcessWrapper(realProcess);
         }
 
         /// <inheritdoc />
-        public IProcess Start(string fileName, string arguments)
+        public IProcess? Start(string fileName, string arguments)
         {
             var realProcess = System.Diagnostics.Process.Start(fileName, arguments);
-            return new ProcessWrapper(realProcess);
+            return realProcess == null ? null : new ProcessWrapper(realProcess);
         }
 
         /// <inheritdoc />
-        public IProcess Start(string fileName, string arguments, SecureString password, string domain)
+        public IProcess? Start(string fileName, string arguments, SecureString password, string domain)
         {
             var realProcess = System.Diagnostics.Process.Start(fileName, arguments, password, domain);
-            return new ProcessWrapper(realProcess);
+            return realProcess == null ? null : new ProcessWrapper(realProcess);
         }
 
 #if NET8_0_OR_GREATER
@@ -84,10 +78,10 @@ namespace Agilent.Ace.Testables.Process.Wrappers
 #endif
 
         /// <inheritdoc />
-        public IProcess Start(string fileName, string arguments, string userName, SecureString password, string domain)
+        public IProcess? Start(string fileName, string arguments, string userName, SecureString password, string domain)
         {
             var realProcess = System.Diagnostics.Process.Start(fileName, arguments, userName, password, domain);
-            return new ProcessWrapper(realProcess);
+            return realProcess == null ? null : new ProcessWrapper(realProcess);
         }
 
         /// <inheritdoc />

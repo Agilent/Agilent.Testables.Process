@@ -5,10 +5,10 @@ using Microsoft.Win32.SafeHandles;
 
 // Active for remainder of file if not restored
 #pragma warning disable CA1041 // Provide ObsoleteAttribute message
-#pragma warning disable S1133
-#pragma warning disable S1123
+#pragma warning disable S1133 // Deprecated code should be removed
+#pragma warning disable S1123 // Obsolete attributes should include explanations
 
-namespace Agilent.Ace.Testables.Process.Abstractions
+namespace Agilent.Testables.Process.Abstractions
 {
     /// <summary>
     ///     Abstractions for <see cref="System.Diagnostics.Process" />
@@ -124,13 +124,13 @@ namespace Agilent.Ace.Testables.Process.Abstractions
         SafeProcessHandle SafeHandle { get; }
 
         /// <inheritdoc cref="Component.Container" />
-        IContainer Container { get; }
+        IContainer? Container { get; }
 
         /// <inheritdoc cref="Component.Site" />
-        ISite Site { get; set; }
+        ISite? Site { get; set; }
 
         /// <inheritdoc cref="System.Diagnostics.Process.SynchronizingObject" />
-        ISynchronizeInvoke SynchronizingObject { get; set; }
+        ISynchronizeInvoke? SynchronizingObject { get; set; }
 
         /// <inheritdoc cref="System.Diagnostics.Process.ExitTime" />
         DateTime ExitTime { get; }
@@ -145,7 +145,7 @@ namespace Agilent.Ace.Testables.Process.Abstractions
         event DataReceivedEventHandler OutputDataReceived;
 
         /// <inheritdoc cref="System.Diagnostics.Process.MainModule" />
-        ProcessModule MainModule { get; }
+        ProcessModule? MainModule { get; }
 
         /// <inheritdoc cref="System.Diagnostics.Process.Modules" />
         ProcessModuleCollection Modules { get; }
@@ -164,7 +164,7 @@ namespace Agilent.Ace.Testables.Process.Abstractions
         event EventHandler Disposed;
 #endif
 
-#if (NET8_0_OR_GREATER)
+#if NET8_0_OR_GREATER
         /// <summary>
         /// Disposed event should not be used in NET 8.0 as although IDisposable is
         /// implemented, <code>base.Dispose()</code> is never called which in turn

@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Agilent.Ace.Testables.Process.Wrappers;
+using Agilent.Testables.Process.Wrappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Snapshooter;
 using Snapshooter.MSTest;
 using static System.Reflection.BindingFlags;
 
-namespace Agilent.Ace.Testables.Process.Tests
+namespace Agilent.Testables.Process.Tests
 {
     [TestClass]
     [ExcludeFromCodeCoverage]

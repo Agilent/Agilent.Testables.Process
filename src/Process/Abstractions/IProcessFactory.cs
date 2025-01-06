@@ -1,12 +1,12 @@
-using System.Collections.Generic;
 using System.Diagnostics;
+#if NET8_0_OR_GREATER
 using System.Runtime.Versioning;
+#endif
 using System.Security;
-
 #if NET8_0_OR_GREATER
 [assembly: SupportedOSPlatform("windows")]
 #endif
-namespace Agilent.Ace.Testables.Process.Abstractions
+namespace Agilent.Testables.Process.Abstractions
 {
     /// <summary>
     /// A factory for the creation of wrappers for <see cref="System.Diagnostics.Process"/>
@@ -31,16 +31,16 @@ namespace Agilent.Ace.Testables.Process.Abstractions
         IProcess GetProcessById(int processId, string machineName);
 
         /// <inheritdoc cref="System.Diagnostics.Process.Start(ProcessStartInfo)"/>
-        IProcess Start(ProcessStartInfo startInfo);
+        IProcess? Start(ProcessStartInfo startInfo);
 
         /// <inheritdoc cref="System.Diagnostics.Process.Start(string)"/>
-        IProcess Start(string fileName);
+        IProcess? Start(string fileName);
 
         /// <inheritdoc cref="System.Diagnostics.Process.Start(string, string)"/>
-        IProcess Start(string fileName, string arguments);
+        IProcess? Start(string fileName, string arguments);
 
         /// <inheritdoc cref="System.Diagnostics.Process.Start(string, string, SecureString, string)"/>
-        IProcess Start(string fileName, string arguments, SecureString password, string domain);
+        IProcess? Start(string fileName, string arguments, SecureString password, string domain);
 
 #if NET8_0_OR_GREATER
         /// <inheritdoc cref="System.Diagnostics.Process.Start(string, IEnumerable{string})"/>
@@ -48,7 +48,7 @@ namespace Agilent.Ace.Testables.Process.Abstractions
 #endif
 
         /// <inheritdoc cref="System.Diagnostics.Process.Start(string, string, string, SecureString, string)"/>
-        IProcess Start(string fileName, string arguments, string userName, SecureString password, string domain);
+        IProcess? Start(string fileName, string arguments, string userName, SecureString password, string domain);
 
         /// <inheritdoc cref="System.Diagnostics.Process.GetProcesses()"/>
         IProcess[] GetProcesses();

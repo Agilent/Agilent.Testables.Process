@@ -4,8 +4,8 @@
     <LangVersion>latest</LangVersion>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyName>Agilent.Ace.Testables.Process.Tests</AssemblyName>
-    <RootNamespace>Agilent.Ace.Testables.Process.Tests</RootNamespace>
+    <AssemblyName>Agilent.Testables.Process.Tests</AssemblyName>
+    <RootNamespace>Agilent.Testables.Process.Tests</RootNamespace>
     <IsPackable>false</IsPackable>
     <PlatformName>windows</PlatformName>
   </PropertyGroup>
@@ -26,6 +26,10 @@
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net48'">
     <DefineConstants>NET48</DefineConstants>
     <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
   <ItemGroup>

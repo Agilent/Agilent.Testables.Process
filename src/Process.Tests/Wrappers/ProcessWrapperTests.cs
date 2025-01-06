@@ -1,12 +1,16 @@
-// (c) Copyright 2024 Agilent Technologies, Inc. All Rights Reserved.
-
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using Agilent.Ace.Testables.Process.Wrappers;
+#if NET8_0_OR_GREATER
+using System.Runtime.Versioning;
+#endif
+using Agilent.Testables.Process.Wrappers;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Agilent.Ace.Testables.Process.Tests.Wrappers
+#if NET8_0_OR_GREATER
+[assembly: SupportedOSPlatform("windows")]
+#endif
+namespace Agilent.Testables.Process.Tests.Wrappers
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
@@ -48,7 +52,7 @@ namespace Agilent.Ace.Testables.Process.Tests.Wrappers
 
 #if (!NET8_0_OR_GREATER)
         /// <summary>
-        /// See <see cref="Agilent.Ace.Testables.Process.Abstractions.IProcess.Disposed"/> for more information on
+        /// See <see cref="IProcess.Disposed"/> for more information on
         /// framework compatibility
         /// </summary>
         [TestMethod]

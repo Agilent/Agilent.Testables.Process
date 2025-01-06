@@ -1,22 +1,14 @@
-// Prevents unused usings being highlighted.
-#pragma warning disable IDE0079
-#pragma warning disable IDE0005
-// ReSharper disable RedundantUsingDirective
-
-using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using Agilent.Ace.Testables.Process.Abstractions;
+using Agilent.Testables.Process.Abstractions;
 using Microsoft.Win32.SafeHandles;
 
 // Active for remainder of file if not restored
 #pragma warning disable CS0618 // Type or member is obsolete
 
-namespace Agilent.Ace.Testables.Process.Wrappers
+namespace Agilent.Testables.Process.Wrappers
 {
     /// <inheritdoc cref="IProcess" />
     [ExcludeFromCodeCoverage]
@@ -154,17 +146,17 @@ namespace Agilent.Ace.Testables.Process.Wrappers
         public SafeProcessHandle SafeHandle => _process.SafeHandle;
 
         /// <inheritdoc />
-        public IContainer Container => _process.Container;
+        public IContainer? Container => _process.Container;
 
         /// <inheritdoc />
-        public ISite Site
+        public ISite? Site
         {
             get => _process.Site;
             set => _process.Site = value;
         }
 
         /// <inheritdoc />
-        public ISynchronizeInvoke SynchronizingObject
+        public ISynchronizeInvoke? SynchronizingObject
         {
             get => _process.SynchronizingObject;
             set => _process.SynchronizingObject = value;
@@ -191,7 +183,7 @@ namespace Agilent.Ace.Testables.Process.Wrappers
         }
 
         /// <inheritdoc />
-        public ProcessModule MainModule => _process.MainModule;
+        public ProcessModule? MainModule => _process.MainModule;
 
         /// <inheritdoc />
         public ProcessModuleCollection Modules => _process.Modules;
@@ -336,17 +328,11 @@ namespace Agilent.Ace.Testables.Process.Wrappers
             _process.Close();
         }
 
-        private void On_ProcessDisposed(object sender, EventArgs e)
-        {
-            Dispose();
-        }
-
         /// <inheritdoc />
         public void Dispose()
         {
             _process.Dispose();
             Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         /// <inheritdoc />
@@ -385,7 +371,7 @@ namespace Agilent.Ace.Testables.Process.Wrappers
         {
             if (disposing)
             {
-                _process?.Dispose();
+                _process.Dispose();
             }
         }
 

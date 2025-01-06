@@ -1,6 +1,6 @@
-# Agilent.Ace.Testables.Process
+# Agilent.Testables.Process
 
-This package contains an abstraction of the `System.Process` class found in .NET Framework 4.8 and .NET 8.0. It allows for an `IProcessFactory` interface to be used instead and for mocks to be created.
+This package contains an abstraction of the `System.Process` class found in .NET Framework 4.8 and above. It allows for an `IProcessFactory` interface to be used instead and for mocks to be created.
 
 ## Usage
 

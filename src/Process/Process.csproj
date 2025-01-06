@@ -10,7 +10,7 @@
     <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)\..\..\release-notes.txt"))</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>
-      This package contains an abstraction of the static System.Process class found in .NET Framework 4.8 and .NET 8.0. It allows for an IProcess interface to be used instead for easier testing.
+      This package contains an abstraction of the static System.Process class found in .NET Framework 4.8 and above. It allows for an IProcess interface to be used instead for easier testing.
     </Description>
     <PackageProjectUrl>https://github.com/Agilent/Agilent.Testables.AppDomain</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
@@ -29,7 +29,7 @@
     <TargetFrameworks>net48;net481;net8.0-windows;net9.0-windows</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>12.0</LangVersion>
     <UseWpf>true</UseWpf>
   </PropertyGroup>
 
@@ -47,6 +47,10 @@
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net48'">
     <DefineConstants>NET48</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
   </PropertyGroup>
 
   <ItemGroup>

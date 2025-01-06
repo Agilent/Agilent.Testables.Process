@@ -1,9 +1,13 @@
 using System.Diagnostics.CodeAnalysis;
-using Agilent.Ace.Testables.Process.Wrappers;
+using System.Runtime.Versioning;
+using Agilent.Testables.Process.Wrappers;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Agilent.Ace.Testables.Process.Tests.Wrappers
+#if NET8_0_OR_GREATER
+[assembly: SupportedOSPlatform("windows")]
+#endif
+namespace Agilent.Testables.Process.Tests.Wrappers
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
