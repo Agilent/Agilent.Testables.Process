@@ -12,6 +12,8 @@ jobs:
               with:
                 fetch-depth: 0
             - name: Build
+              working-directory: ./src
               run: dotnet build
             - name: Test
+              working-directory: ./src
               run: dotnet test --no-build

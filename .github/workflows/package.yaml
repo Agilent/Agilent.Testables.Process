@@ -12,10 +12,13 @@ jobs:
               with:
                 setAllVars: true
             - name: Build
+              working-directory: ./src
               run: dotnet build
             - name: Test
+              working-directory: ./src
               run: dotnet test --no-build
             - name: Package
+              working-directory: ./src
               run: dotnet pack --configuration debug --no-build
             - name: Archive
               uses: actions/upload-artifact@v4
