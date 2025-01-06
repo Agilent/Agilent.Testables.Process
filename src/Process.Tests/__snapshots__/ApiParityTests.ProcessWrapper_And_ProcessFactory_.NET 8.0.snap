@@ -1,6 +1,6 @@
 ﻿{
   "ExtraMembers": [
-    "Agilent.Ace.Testables.Process.Abstractions.IProcess New()",
+    "Agilent.Testables.Process.Abstractions.IProcess New()",
     "Void .ctor(System.Diagnostics.Process)"
   ],
   "MissingMembers": [

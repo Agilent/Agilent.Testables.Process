@@ -40,9 +40,9 @@ namespace Agilent.Testables.Process.Tests
 
             var referenceMembers = GetMembers(referenceType)
                 .Select(x => x.Replace(
-                    "System.Diagnostics.Process ", "Agilent.Ace.Testables.Process.Abstractions.IProcess "))
+                    "System.Diagnostics.Process ", "Agilent.Testables.Process.Abstractions.IProcess "))
                 .Select(x => x.Replace(
-                    "System.Diagnostics.Process[] ", "Agilent.Ace.Testables.Process.Abstractions.IProcess[] "));
+                    "System.Diagnostics.Process[] ", "Agilent.Testables.Process.Abstractions.IProcess[] "));
             List<string> abstractionMembers = new List<string>();
             foreach (Type type in abstractionTypes)
             {
